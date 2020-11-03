@@ -9,7 +9,6 @@ import './App.css';
 const App: React.FC = () => {
   return <div className="wrapper">
   <EntryFiled/>
-  <Download/>
   <Clear/>
   <Group/>
   <List/>

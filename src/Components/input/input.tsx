@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { isThisTypeNode } from "typescript";
 
 export const EntryFiled: React.FC = () => {
   const [title, setTitle] = useState<string>("");
@@ -7,10 +8,15 @@ export const EntryFiled: React.FC = () => {
     setTitle(event.target.value);
   };
 
-  const keyPressHandler = (event: React.KeyboardEvent) => {
-    if (event.key === "Enter") {
-      console.log(title);
-    }
+  const fetchPressHandler = (event: React.MouseEvent) => {
+      if (title === '') {
+        console.log('er')
+      } else {
+        fetch(`https://api.giphy.com/v1/gifs/random?api_key=gTJAO48YcpmrADUyo4opy4ES4g7iDBxx&tag=${title}`)
+        .then(res => res.json())
+        .then(res => console.log(res))
+      }
+    
   };
   return (
     <nav>
@@ -18,8 +24,11 @@ export const EntryFiled: React.FC = () => {
         onChange={changeHandler}
         value={title}
         type="text"
-        placeholder="tag"
-        onKeyPress={keyPressHandler}
+      />
+      <input 
+      type="button"
+      onClick={fetchPressHandler}
+       value="Загрузить"
       />
     </nav>
   );
