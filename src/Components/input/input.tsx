@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { isThisTypeNode } from "typescript";
 
-export const EntryFiled: React.FC = () => {
+interface TodoFormProps {
+  onAdd(title: string): void
+}
+
+export const EntryFiled: React.FC<TodoFormProps> = (props) => {
   const [title, setTitle] = useState<string>("");
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -9,14 +12,14 @@ export const EntryFiled: React.FC = () => {
   };
 
   const fetchPressHandler = (event: React.MouseEvent) => {
-      if (title === '') {
-        console.log('er')
-      } else {
-        fetch(`https://api.giphy.com/v1/gifs/random?api_key=gTJAO48YcpmrADUyo4opy4ES4g7iDBxx&tag=${title}`)
+    if (title === '') {
+      console.error('error')
+    } else {
+      fetch(`https://api.giphy.com/v1/gifs/random?api_key=gTJAO48YcpmrADUyo4opy4ES4g7iDBxx&tag=${title}`)
         .then(res => res.json())
-        .then(res => console.log(res))
-      }
-    
+        .then(res => props.onAdd(res))
+    }
+
   };
   return (
     <nav>
@@ -25,10 +28,10 @@ export const EntryFiled: React.FC = () => {
         value={title}
         type="text"
       />
-      <input 
-      type="button"
-      onClick={fetchPressHandler}
-       value="Загрузить"
+      <input
+        type="button"
+        onClick={fetchPressHandler}
+        value="Загрузить"
       />
     </nav>
   );

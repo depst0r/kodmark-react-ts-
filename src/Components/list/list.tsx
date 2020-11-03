@@ -1,7 +1,22 @@
 import React from "react";
 
-export const List: React.FunctionComponent = () => (
-  <div>
-    List images
-  </div>
-);
+type ListProps = {
+  todos: any[]
+}
+
+export const List: React.ReactElement<ListProps>, string = ({ todos }) => {
+  return (
+    {
+      todos.map(todo => {
+        return (
+          <ul>
+            <li>
+              <img src={todo.data.url} alt="" />
+            </li>
+          </ul>
+        )
+      })
+    }
+  )
+}
+
