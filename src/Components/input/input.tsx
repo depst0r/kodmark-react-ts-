@@ -1,11 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 interface TodoFormProps {
   onAdd(title:string): void
 }
 
 export const EntryFiled: React.FC<TodoFormProps> = props => {
-  // const [title, setTitle] = useState<string>('');
+  const [title, setTitle] = useState<string>('');
 const ref = useRef<HTMLInputElement>(null)
 
 
@@ -20,7 +20,12 @@ const ref = useRef<HTMLInputElement>(null)
       } else {
         fetch(`https://api.giphy.com/v1/gifs/random?api_key=gTJAO48YcpmrADUyo4opy4ES4g7iDBxx&tag=${ref.current!.value}`)
         .then(res => res.json())
-        .then(res => props.onAdd(res.data))
+        .then(res => {
+          setTitle(res.data.image_original_url)
+        })
+        console.log(title)
+        
+        
       }
       
   };
@@ -37,7 +42,7 @@ const ref = useRef<HTMLInputElement>(null)
         onClick={fetchPressHandler}
         value="Загрузить"
       />
-      
+      <img src={title} alt="test"/>
     </nav>
   );
 };
