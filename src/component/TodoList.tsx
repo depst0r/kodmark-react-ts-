@@ -7,18 +7,16 @@ interface TodoListprops {
 
 export const TodoList: React.FC<TodoListprops> = ({todos}) => {
     return (
-        <ul>
+        <div>
             {todos.map(todo => {
                 return (
-                    <li className="todo" key={todo.id}>
-                    <label>
-                        <div className="todoItemList">
-                            <img src={todo.image_original_url} alt="gif"/>
-                        </div>
-                    </label>
-                </li>
+                  <section className="todo" key={todo.id}>
+                    <div className="todoItemList">
+                        <img src={todo.image_original_url} alt="gif"/>
+                    </div>
+                  </section>
                 )
             })}
-        </ul>
+        </div>
     )
 }

@@ -7,10 +7,10 @@ import { ITodo } from './interfaces'
 const App: React.FC = () => {
   const [todos, setTodos ] = useState<ITodo[]>([])
 
-  const addHandler = (url:string) => {
+  const addHandler = (url:string, id: string) => {
     const newTodo: ITodo = {
       image_original_url:url,
-      id: Date.now(),
+      id: id,
     }
     setTodos(prev => [newTodo, ...prev])
   }
