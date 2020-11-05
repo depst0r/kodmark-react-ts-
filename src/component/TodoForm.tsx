@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { PoPup } from './PoPup'
 
 interface TodoFormProp {
     onAdd(title:string, id:string): void
@@ -12,7 +13,7 @@ const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
 }
 const clickHandler = (event: React.MouseEvent) => {
     if (tag === '') {
-        console.error('Error!!!')
+        console.error('ERROR!!')
     } else {
         fetch(`https://api.giphy.com/v1/gifs/random?api_key=gTJAO48YcpmrADUyo4opy4ES4g7iDBxx&tag=${tag}`)
         .then(res => res.json())
