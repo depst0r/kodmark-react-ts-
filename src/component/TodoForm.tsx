@@ -16,8 +16,7 @@ const clickHandler = (event: React.MouseEvent) => {
     } else {
         fetch(`https://api.giphy.com/v1/gifs/random?api_key=gTJAO48YcpmrADUyo4opy4ES4g7iDBxx&tag=${tag}`)
         .then(res => res.json())
-        .then(res => console.dir(res))
-        // .then(res => props.onAdd(res.data.image_original_url))
+        .then(res => props.onAdd(res.data.image_original_url))
     }
 }
 
@@ -29,7 +28,6 @@ const clickHandler = (event: React.MouseEvent) => {
             value={tag} 
             type="text" 
             id="title"/>
-            {/* <label htmlFor="title" className="active">{tag}</label> */}
             <button
             onClick={clickHandler}
             >
