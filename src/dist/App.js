@@ -8,20 +8,24 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 };
 exports.__esModule = true;
 var react_1 = require("react");
-var input_1 = require("./Components/input/input");
-var list_1 = require("./Components/list/list");
 require("./App.css");
+var TodoForm_1 = require("./component/TodoForm");
+var TodoList_1 = require("./component/TodoList");
 var App = function () {
     var _a = react_1.useState([]), todos = _a[0], setTodos = _a[1];
-    var addHandler = function (title) {
+    var addHandler = function (url, tag) {
         var newTodo = {
-            title: title,
-            completed: true
+            image_original_url: url,
+            id: Date.now(),
+            tag: tag
         };
-        setTodos(__spreadArrays([newTodo], todos));
+        // setTodos([newTodo, ...todos])
+        setTodos(function (prev) { return __spreadArrays([newTodo], prev); });
+        console.log(todos);
     };
-    return (react_1["default"].createElement("div", { className: "wrapper" },
-        react_1["default"].createElement(input_1.EntryFiled, { onAdd: addHandler }),
-        react_1["default"].createElement(list_1.List, { todos: todos })));
+    return (react_1["default"].createElement(react_1["default"].Fragment, null,
+        react_1["default"].createElement("div", { className: "wrapper" },
+            react_1["default"].createElement(TodoForm_1.TodoForm, { onAdd: addHandler }),
+            react_1["default"].createElement(TodoList_1.TodoList, { todos: todos }))));
 };
 exports["default"] = App;

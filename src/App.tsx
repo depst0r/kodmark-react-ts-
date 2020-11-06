@@ -1,23 +1,29 @@
-import React, { useState } from 'react';
-import { EntryFiled } from './Components/input/input';
-import { List } from './Components/list/list';
-import './App.css';
+import React, { useState } from 'react'
+import './App.css'
+import { TodoForm } from './component/TodoForm'
+import { TodoList } from './component/TodoList'
+import { ITodo } from './interfaces'
 
 const App: React.FC = () => {
-  const [todos, setTodos] = useState<any>([])
+  const [todos, setTodos] = useState<ITodo[]>([])
 
-  const addHandler = (title: string) => {
-    const newTodo = {
-      title: title,
-      completed: true
+  const addHandler = (url: string, tag: string) => {
+    const newTodo: ITodo = {
+      image_original_url: url,
+      id: Date.now(),
+      tag: tag
     }
-    setTodos([newTodo, ...todos])
+    // setTodos([newTodo, ...todos])
+    setTodos(prev => [newTodo, ...prev])
+    console.log(todos);
   }
 
   return (
-    <div className="wrapper">
-      <EntryFiled onAdd={addHandler} />
-      <List todos={todos} />
-    </div>)
+    <>
+      <div className="wrapper">
+        <TodoForm onAdd={addHandler} />
+        <TodoList todos={todos} />
+      </div>
+    </>)
 }
 export default App;
