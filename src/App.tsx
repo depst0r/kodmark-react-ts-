@@ -21,7 +21,7 @@ const App: React.FC = () => {
   return (
     <>
       <div className="wrapper">
-        <TodoForm onAdd={addHandler} />
+        <TodoForm onAdd={addHandler} todos={todos} />
         <TodoList todos={todos} />
       </div>
     </>)

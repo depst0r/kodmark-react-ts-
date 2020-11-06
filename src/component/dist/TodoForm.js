@@ -7,6 +7,9 @@ exports.TodoForm = function (props) {
     var changeHandler = function (event) {
         setTag(event.target.value);
     };
+    var groupTag = function (event) {
+        console.log(props.todos);
+    };
     var clickHandler = function (event) {
         if (tag === '') {
             console.error('ERROR!!');
@@ -19,5 +22,6 @@ exports.TodoForm = function (props) {
     };
     return (react_1["default"].createElement("div", { className: "input-field" },
         react_1["default"].createElement("input", { onChange: changeHandler, value: tag, type: "text", id: "title" }),
-        react_1["default"].createElement("button", { onClick: clickHandler }, "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C")));
+        react_1["default"].createElement("button", { onClick: clickHandler }, "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C"),
+        react_1["default"].createElement("button", { onClick: groupTag }, "Click")));
 };

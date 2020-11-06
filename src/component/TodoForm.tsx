@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
+import { ITodo } from '../interfaces'
+
+
 
 interface TodoFormProp {
-    onAdd(title: string, tag: string): void
+    onAdd(title: string, tag: string): void,
+    todos: ITodo[]
 }
 
 export const TodoForm: React.FC<TodoFormProp> = props => {
@@ -10,6 +14,11 @@ export const TodoForm: React.FC<TodoFormProp> = props => {
     const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         setTag(event.target.value)
     }
+
+    const groupTag = (event: React.MouseEvent) => {
+        console.log(props.todos);
+    }
+
     const clickHandler = (event: React.MouseEvent) => {
         if (tag === '') {
             console.error('ERROR!!')
@@ -33,6 +42,7 @@ export const TodoForm: React.FC<TodoFormProp> = props => {
             >
                 Загрузить
             </button>
+            <button onClick={groupTag}>Click</button>
         </div>
     )
 }
