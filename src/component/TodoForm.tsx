@@ -15,10 +15,6 @@ export const TodoForm: React.FC<TodoFormProp> = props => {
         setTag(event.target.value)
     }
 
-    const groupTag = (event: React.MouseEvent) => {
-        console.log(props.todos);
-    }
-
     const clickHandler = (event: React.MouseEvent) => {
         if (tag === '') {
             console.error('ERROR!!')
@@ -42,7 +38,6 @@ export const TodoForm: React.FC<TodoFormProp> = props => {
             >
                 Загрузить
             </button>
-            <button onClick={groupTag}>Click</button>
         </div>
     )
 }

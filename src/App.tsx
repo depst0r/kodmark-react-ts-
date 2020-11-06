@@ -3,6 +3,7 @@ import './App.css'
 import { TodoForm } from './component/TodoForm'
 import { TodoList } from './component/TodoList'
 import { ITodo } from './interfaces'
+import { GroupTags } from './component/GroupTags'
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<ITodo[]>([])
@@ -23,6 +24,7 @@ const App: React.FC = () => {
       <div className="wrapper">
         <TodoForm onAdd={addHandler} todos={todos} />
         <TodoList todos={todos} />
+        <GroupTags todos={todos} />
       </div>
     </>)
 }
