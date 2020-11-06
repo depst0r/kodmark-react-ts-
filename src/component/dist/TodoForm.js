@@ -14,7 +14,7 @@ exports.TodoForm = function (props) {
         else {
             fetch("https://api.giphy.com/v1/gifs/random?api_key=gTJAO48YcpmrADUyo4opy4ES4g7iDBxx&tag=" + tag)
                 .then(function (res) { return res.json(); })
-                .then(function (res) { return props.onAdd(res.data.image_original_url, res.tag); });
+                .then(function (res) { return props.onAdd(res.data.image_original_url, tag); });
         }
     };
     return (react_1["default"].createElement("div", { className: "input-field" },

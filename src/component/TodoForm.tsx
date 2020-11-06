@@ -16,7 +16,7 @@ export const TodoForm: React.FC<TodoFormProp> = props => {
         } else {
             fetch(`https://api.giphy.com/v1/gifs/random?api_key=gTJAO48YcpmrADUyo4opy4ES4g7iDBxx&tag=${tag}`)
                 .then(res => res.json())
-                .then(res => props.onAdd(res.data.image_original_url, res.tag))
+                .then(res => props.onAdd(res.data.image_original_url, tag))
         }
     }
 
