@@ -4,7 +4,7 @@ type ListProps = {
   todos: any[]
 }
 
-export const List: React.ReactElement<ListProps>, string = ({ todos }) => {
+export const List: React.ReactElement<ListProps>, string = ({ todos }: any) => {
   return (
     {
       todos.map(todo => {
@@ -19,4 +19,7 @@ export const List: React.ReactElement<ListProps>, string = ({ todos }) => {
     }
   )
 }
+
+
+
 
