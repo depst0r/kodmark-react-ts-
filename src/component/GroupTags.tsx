@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ITodo } from '../interfaces'
 
 interface TodosProps {
@@ -6,16 +6,27 @@ interface TodosProps {
 }
 
 export const GroupTags: React.FC<TodosProps> = ({ todos }) => {
+    const [change, setChange] = useState<string>('Группировать')
 
     const groupTag = (event: React.MouseEvent) => {
         console.log(todos);
+        if (change === 'Группировать') {
+            setChange('Разгруппировать')
+        } else {
+            setChange('Группировать')
+        }
     }
 
     return <>
-        <button
+        <input
+            type="button"
+            onClick={groupTag}
+            value={change}
+        />
+        {/* <button
             onClick={groupTag}
         >
-            Group
-    </button>
+            Разгруппировать
+    </button> */}
     </>
 }

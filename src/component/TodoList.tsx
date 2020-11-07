@@ -1,11 +1,11 @@
 import React from 'react';
 import { ITodo } from '../interfaces';
-
 interface TodoListprops {
     todos: ITodo[]
 }
 
 export const TodoList: React.FC<TodoListprops> = ({ todos }) => {
+
     return (
         <div>
             {todos.map(todo => {

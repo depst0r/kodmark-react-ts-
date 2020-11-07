@@ -26,8 +26,8 @@ var App = function () {
     };
     return (react_1["default"].createElement(react_1["default"].Fragment, null,
         react_1["default"].createElement("div", { className: "wrapper" },
+            react_1["default"].createElement(GroupTags_1.GroupTags, { todos: todos }),
             react_1["default"].createElement(TodoForm_1.TodoForm, { onAdd: addHandler, todos: todos }),
-            react_1["default"].createElement(TodoList_1.TodoList, { todos: todos }),
-            react_1["default"].createElement(GroupTags_1.GroupTags, { todos: todos }))));
+            react_1["default"].createElement(TodoList_1.TodoList, { todos: todos }))));
 };
 exports["default"] = App;
