@@ -5,19 +5,22 @@ var react_1 = require("react");
 exports.GroupTags = function (_a) {
     var todos = _a.todos;
     var _b = react_1.useState('Группировать'), change = _b[0], setChange = _b[1];
+    var _c = react_1.useState(todos), grouped = _c[0], setGrouped = _c[1];
     var groupTag = function (event) {
-        console.log(todos);
+        var arrayGroup = todos.reduce(function (array, arg) {
+            array[arg.tag] = array[arg.tag] || [];
+            array[arg.tag].push(arg);
+            return array;
+        }, {});
+        setGrouped(arrayGroup);
         if (change === 'Группировать') {
-            var arrayy = todos.reduce(function (array, arg) {
-                array[arg.tag] = array[arg.tag] || [];
-                array[arg.tag].push(arg);
-                return array;
-            }, {});
-            console.log(arrayy);
+            console.log(grouped);
+            // console.log(arrayGroup);
             setChange('Разгруппировать');
         }
         else {
             setChange('Группировать');
+            console.log(todos);
             return todos;
         }
     };
