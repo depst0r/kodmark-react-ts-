@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { ITodo } from '../interfaces'
 
 
-
 interface TodoFormProp {
     onAdd(title: string, tag: string): void,
     todos: ITodo[]
@@ -11,9 +10,9 @@ interface TodoFormProp {
 export const TodoForm: React.FC<TodoFormProp> = ({ onAdd }) => {
     const [tag, setTag] = useState<string>('')
 
-    const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setTag(event.target.value)
-    }
+const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTag(event.target.value)
+}
 
 
     const clickHandler = (event: React.MouseEvent) => {
