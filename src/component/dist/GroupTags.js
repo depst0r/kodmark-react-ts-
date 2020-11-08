@@ -6,7 +6,7 @@ exports.GroupTags = function (_a) {
     var todos = _a.todos;
     var _b = react_1.useState('Группировать'), change = _b[0], setChange = _b[1];
     var groupTag = function (event) {
-        console.log(todos);
+        console.table(todos);
         if (change === 'Группировать') {
             setChange('Разгруппировать');
         }

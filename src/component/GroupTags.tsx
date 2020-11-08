@@ -9,7 +9,7 @@ export const GroupTags: React.FC<TodosProps> = ({ todos }) => {
     const [change, setChange] = useState<string>('Группировать')
 
     const groupTag = (event: React.MouseEvent) => {
-        console.log(todos);
+        console.table(todos);
         if (change === 'Группировать') {
             setChange('Разгруппировать')
         } else {
@@ -23,10 +23,5 @@ export const GroupTags: React.FC<TodosProps> = ({ todos }) => {
             onClick={groupTag}
             value={change}
         />
-        {/* <button
-            onClick={groupTag}
-        >
-            Разгруппировать
-    </button> */}
     </>
 }
