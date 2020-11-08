@@ -7,12 +7,13 @@ interface TodoFormProp {
     todos: ITodo[]
 }
 
-export const TodoForm: React.FC<TodoFormProp> = props => {
+export const TodoForm: React.FC<TodoFormProp> = ({ onAdd }) => {
     const [tag, setTag] = useState<string>('')
 
 const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTag(event.target.value)
 }
+
 
     const clickHandler = (event: React.MouseEvent) => {
         if (tag === '') {
@@ -20,7 +21,7 @@ const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         } else {
             fetch(`https://api.giphy.com/v1/gifs/random?api_key=gTJAO48YcpmrADUyo4opy4ES4g7iDBxx&tag=${tag}`)
                 .then(res => res.json())
-                .then(res => props.onAdd(res.data.image_original_url, tag))
+                .then(res => onAdd(res.data.image_original_url, tag))
         }
     }
 

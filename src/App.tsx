@@ -22,9 +22,9 @@ const App: React.FC = () => {
   return (
     <>
       <div className="wrapper">
+        <GroupTags todos={todos} />
         <TodoForm onAdd={addHandler} todos={todos} />
         <TodoList todos={todos} />
-        <GroupTags todos={todos} />
       </div>
     </>)
 }
