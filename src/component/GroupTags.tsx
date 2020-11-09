@@ -30,7 +30,7 @@ export const GroupTags: React.FC<TodosProps> = ({ todos }) => {
             setChange('Разгруппировать')
         } else {
             setChange('Группировать')
-            console.log(todos)
+            console.log(todos);
             return todos
         }
     }
