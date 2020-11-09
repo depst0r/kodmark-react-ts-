@@ -10,9 +10,11 @@ interface TodoFormProp {
 export const TodoForm: React.FC<TodoFormProp> = ({ onAdd }) => {
     const [tag, setTag] = useState<string>('')
 
-const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTag(event.target.value)
-}
+
+
+    const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setTag(event.target.value)
+    }
 
 
     const clickHandler = (event: React.MouseEvent) => {
