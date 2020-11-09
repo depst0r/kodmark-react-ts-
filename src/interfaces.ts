@@ -3,3 +3,6 @@ export interface ITodo {
     id: number
     tag: string
 }
+
+
+// const result:Promise<{title:string,id:number}>

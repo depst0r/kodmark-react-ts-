@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Api } from '../component/Api'
 import { ITodo } from '../interfaces'
 
 
@@ -21,8 +22,7 @@ export const TodoForm: React.FC<TodoFormProp> = ({ onAdd }) => {
         if (tag === '') {
             console.error('ERROR!!')
         } else {
-            fetch(`https://api.giphy.com/v1/gifs/random?api_key=gTJAO48YcpmrADUyo4opy4ES4g7iDBxx&tag=${tag}`)
-                .then(res => res.json())
+            Api(`https://api.giphy.com/v1/gifs/random?api_key=gTJAO48YcpmrADUyo4opy4ES4g7iDBxx&tag=${tag}`)
                 .then(res => onAdd(res.data.image_original_url, tag))
         }
     }
