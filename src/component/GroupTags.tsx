@@ -7,7 +7,7 @@ interface TodosProps {
 
 export const GroupTags: React.FC<TodosProps> = ({ todos }) => {
     const [change, setChange] = useState<string>('Группировать')
-    const [grouped, setGrouped] = useState<any>(todos)
+    const [grouped, setGrouped] = useState<any>({})
 
     const groupTag = (event: React.MouseEvent) => {
         const arrayGroup = todos.reduce((array: any, arg: any) => {
@@ -18,10 +18,7 @@ export const GroupTags: React.FC<TodosProps> = ({ todos }) => {
         setGrouped(arrayGroup)
 
         if (change === 'Группировать') {
-
             console.log(grouped)
-
-            // console.log(arrayGroup);
             setChange('Разгруппировать')
         } else {
             setChange('Группировать')
