@@ -14,18 +14,6 @@ export const GroupTags: React.FC<TodosProps> = ({ todos }) => {
     const groupTag = (event: React.MouseEvent) => {
         console.log(todos)
 
-        const array = todos.reduce((r:any, a:any) => {
-            r[a.tag] = r[a.tag] || [];
-            r[a.tag].push(a)
-            return r
-        }, {})
-
-        console.log(array)
-
-
-    
-      
-
         if (change === 'Группировать') {
             setChange('Разгруппировать')
         } else {
