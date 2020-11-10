@@ -4,7 +4,7 @@ import { TodoForm } from './component/TodoForm'
 import { TodoList } from './component/TodoList'
 import { ITodo } from './interfaces'
 import { GroupTags } from './component/GroupTags'
-import { GetAll } from './component/Selectors/GetAll'
+import { GetApi } from './component/Selectors/GetApi'
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<ITodo[]>([])
@@ -14,6 +14,7 @@ const App: React.FC = () => {
       image_original_url: url,
       id: Date.now(),
       tag: tag
+      
     }
     // setTodos([newTodo, ...todos])
     setTodos(prev => [newTodo, ...prev])
@@ -23,7 +24,7 @@ const App: React.FC = () => {
   return (
     <>
       <div className="wrapper">
-        <GetAll todos={todos}/>
+        <GetApi todos={todos}/>
         <GroupTags todos={todos} />
         <TodoForm onAdd={addHandler} todos={todos} />
         <TodoList todos={todos} />

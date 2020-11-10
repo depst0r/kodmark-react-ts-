@@ -7,6 +7,6 @@ interface TodosProps {
 
 export const GetAll:React.FC<TodosProps> = ({todos}) => {
     console.log('all', todos)
-    return <></>
+    return <><h1></h1></>
 
 }
