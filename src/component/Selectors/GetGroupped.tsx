@@ -17,5 +17,10 @@ export const GetGroupped:React.FC<TodosProps> = ({todos}) => {
 
     console.log("GetGrouped", grouped)
     return<>
+    <div>
+        {grouped.map((res:any) => {
+            <h1>{res.tag}</h1>
+        })}
+    </div>
     </>
 }

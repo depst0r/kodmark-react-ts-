@@ -11,7 +11,7 @@ interface TodosProps {
 export const GetApi:React.FC<TodosProps>  = ({todos}) => {
     console.log('GetApi-change')
         return <>
-        <GetGroupped todos={todos}/>
-      <GetAll todos={todos}/>
+        {/* <GetGroupped todos={todos}/> */}
+        <GetAll todos={todos}/>
       </>
 }

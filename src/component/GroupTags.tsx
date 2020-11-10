@@ -16,11 +16,13 @@ export const GroupTags: React.FC<TodosProps> = ({ todos }) => {
 
         if (change === 'Группировать') {
             setChange('Разгруппировать')
-            return !checked
+            setChecked(true)
+            console.log(checked)
  
         } else {
             setChange('Группировать')
-            setChecked(true)
+            setChecked(false)
+            console.log(checked)
             return todos
         }
     }
