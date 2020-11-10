@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { ITodo } from '../interfaces'
 
-import { GetGroupped } from '../component/Selectors/GetGroupped'
-
 interface TodosProps {
     todos: ITodo[]
     grouped: ITodo[]
