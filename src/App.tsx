@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import './App.css'
 import { TodoForm } from './component/TodoForm'
-import { TodoList } from './component/TodoList'
+// import { TodoList } from './component/TodoList'
 import { ITodo } from './interfaces'
+import { Todo } from './component/Test/Todo'
 
 
 
@@ -27,7 +28,7 @@ const App: React.FC = () => {
     <>
       <div className="wrapper">
         <TodoForm onAdd={addHandler} todos={todos} />
-        <TodoList todos={todos} />
+        <Todo todos={todos} />
       </div>
     </>)
 }
