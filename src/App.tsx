@@ -3,8 +3,6 @@ import './App.css'
 import { TodoForm } from './component/TodoForm'
 import { TodoList } from './component/TodoList'
 import { ITodo } from './interfaces'
-import { GroupTags } from './component/GroupTags'
-import { Todo } from './component/Todo'
 
 
 
@@ -18,7 +16,7 @@ const App: React.FC = () => {
       image_original_url: url,
       id: Date.now(),
       tag: tag
-      
+
     }
     // setTodos([newTodo, ...todos])
     setTodos(prev => [newTodo, ...prev])
@@ -28,8 +26,6 @@ const App: React.FC = () => {
   return (
     <>
       <div className="wrapper">
-        <Todo grouped={todos} />
-        <GroupTags todos={todos} />
         <TodoForm onAdd={addHandler} todos={todos} />
         <TodoList todos={todos} />
       </div>
