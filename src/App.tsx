@@ -4,8 +4,11 @@ import { TodoForm } from './component/TodoForm'
 import { TodoList } from './component/TodoList'
 import { ITodo } from './interfaces'
 import { GroupTags } from './component/GroupTags'
-import { GetApi } from './component/Selectors/GetApi'
-import { TestTodo } from './component/test/TestTodo'
+import { Todo } from './component/Todo'
+
+
+
+
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<ITodo[]>([])
@@ -25,8 +28,7 @@ const App: React.FC = () => {
   return (
     <>
       <div className="wrapper">
-        <TestTodo todos={todos}/>
-        <GetApi todos={todos}/>
+        <Todo grouped={todos} />
         <GroupTags todos={todos} />
         <TodoForm onAdd={addHandler} todos={todos} />
         <TodoList todos={todos} />
