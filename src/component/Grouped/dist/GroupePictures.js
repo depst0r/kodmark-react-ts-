@@ -4,7 +4,7 @@ exports.GroupePictures = void 0;
 var react_1 = require("react");
 exports.GroupePictures = function (_a) {
     var todos = _a.todos;
-    var _b = react_1.useState(), grouped = _b[0], setGrouped = _b[1];
+    var _b = react_1.useState({}), grouped = _b[0], setGrouped = _b[1];
     var click = function () {
         var grouppedPictureList = todos.reduce(function (array, arg) {
             array[arg.tag] = array[arg.tag] || [];
@@ -12,7 +12,7 @@ exports.GroupePictures = function (_a) {
             return array;
         }, {});
         setGrouped(grouppedPictureList);
-        console.log(grouped);
+        console.log(Object.keys(grouped));
     };
     return react_1["default"].createElement(react_1["default"].Fragment, null,
         react_1["default"].createElement("div", null,

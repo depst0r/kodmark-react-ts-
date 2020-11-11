@@ -14,7 +14,7 @@ const RenderAllPictures: React.FC = () => {
       id: Date.now(),
       tag: tag
     }
-    
+
     setTodos(prev => [newTodo, ...prev])
     console.log(todos);
   }
@@ -23,11 +23,11 @@ const RenderAllPictures: React.FC = () => {
   return (
     <>
       <div className="wrapper">
-        <GroupePictures todos={todos}/>
+        <GroupePictures todos={todos} />
         <TodoForm onAdd={addHandler} todos={todos} />
         <TodoList todos={todos} />
       </div>
     </>
-    )
+  )
 }
 export default RenderAllPictures;

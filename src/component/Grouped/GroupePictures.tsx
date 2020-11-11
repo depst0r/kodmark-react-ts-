@@ -6,7 +6,7 @@ interface TodosProps {
 }
 
 export const GroupePictures: React.FC<TodosProps> = ({ todos }) => {
-    const [grouped, setGrouped] = useState<ITodo>()
+    const [grouped, setGrouped] = useState({})
 
 
 
@@ -18,8 +18,9 @@ export const GroupePictures: React.FC<TodosProps> = ({ todos }) => {
             return array
         }, {})
         setGrouped(grouppedPictureList)
-        console.log(grouped)
+        console.log(Object.keys(grouped))
     }
+
 
 
 
