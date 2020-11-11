@@ -5,14 +5,14 @@ interface TodosProps {
     todos: ITodo[]
 }
 
-export const GroupePictures: React.FC<TodosProps> = ({todos}) => {
+export const GroupePictures: React.FC<TodosProps> = ({ todos }) => {
     const [grouped, setGrouped] = useState<ITodo>()
 
 
 
-    
-    const c = () => {
-        const grouppedPictureList = todos.reduce((array:any, arg:any) => {
+
+    const click = () => {
+        const grouppedPictureList = todos.reduce((array: any, arg: any) => {
             array[arg.tag] = array[arg.tag] || [];
             array[arg.tag].push(arg)
             return array
@@ -23,11 +23,11 @@ export const GroupePictures: React.FC<TodosProps> = ({todos}) => {
 
 
 
-    
 
-    return<>
-    <div>
-    <button onClick={c}>Click</button>
-    </div>
+
+    return <>
+        <div>
+            <button onClick={click}>Grouped</button>
+        </div>
     </>
 }
