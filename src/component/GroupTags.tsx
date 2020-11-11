@@ -3,41 +3,28 @@ import { ITodo } from '../interfaces'
 
 interface TodosProps {
     todos: ITodo[]
-    grouped: ITodo[]
 }
 
-export const GroupTags: React.FC<TodosProps> = ({ todos, grouped }) => {
+export const GroupTags: React.FC<TodosProps> = ({ todos }) => {
     const [change, setChange] = useState<string>('Группировать')
-    const [checked, setChecked] = useState<Boolean>(false)
+    // const [grouped, setGrouped] = useState()
 
-
-
-
+    
     const groupTag = (event: React.MouseEvent) => {
 
         if (change === 'Группировать') {
-            const arrayGroup = todos.reduce((array: any, arg: any) => {
-                array[arg.tag] = array[arg.tag] || [];
-                array[arg.tag].push(arg)
-                return array
-            }, {})
-            if (grouped === undefined) {
-                console.log('error')
-            } else {
-                // console.log(Object.values(grouped))
-                console.log(grouped)
-            }
-            console.log(arrayGroup);
-
             setChange('Разгруппировать')
-            setChecked(true)
-            console.log(checked)
 
+            // const grouppedPictureList = todos.reduce((array: any, arg: any) => {
+            //     array[arg.tag] = array[arg.tag] || [];
+            //     array[arg.tag].push(arg)
+            //     return array
+            // }, {})
+            // setGrouped(grouppedPictureList)
+            //     console.log(grouped)
         } else {
             setChange('Группировать')
-            setChecked(false)
-            console.log(checked)
-            console.log(todos);
+            console.log(todos)
             return todos
         }
     }
