@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Api } from '../component/Api'
 import { ITodo } from '../interfaces'
-import { Api } from '../component/Api'
 
 
 interface TodoFormProp {
@@ -23,12 +22,9 @@ export const TodoForm: React.FC<TodoFormProp> = ({ onAdd }) => {
         if (tag === '') {
             console.error('ERROR!!')
         } else {
-            Api(`https://api.giphy.com/v1/gifs/random?api_key=gTJAO48YcpmrADUyo4opy4ES4g7iDBxx&tag=${tag}`)
-<<<<<<< HEAD
-                .then((res:any) => onAdd(res.data.image_original_url, tag))
-=======
-                .then(res => onAdd(res.data.image_original_url, tag))
->>>>>>> e3cf6688643d6e2351f08450b0104fa5f6467ea0
+            fetch(`https://api.giphy.com/v1/gifs/random?api_key=gTJAO48YcpmrADUyo4opy4ES4g7iDBxx&tag=${tag}`)
+            .then(res => res.json())    
+            .then(res => onAdd(res.data.image_original_url, tag))
         }
     }
 

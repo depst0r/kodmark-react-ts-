@@ -4,7 +4,6 @@ import { TodoForm } from './component/TodoForm'
 import { TodoList } from './component/TodoList'
 import { ITodo } from './interfaces'
 import { GroupTags } from './component/GroupTags'
-import { Todo } from './component/Todo'
 
 
 
@@ -28,7 +27,6 @@ const App: React.FC = () => {
   return (
     <>
       <div className="wrapper">
-        <Todo grouped={todos} />
         <GroupTags todos={todos} />
         <TodoForm onAdd={addHandler} todos={todos} />
         <TodoList todos={todos} />
