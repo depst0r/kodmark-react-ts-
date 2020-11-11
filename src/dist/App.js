@@ -10,7 +10,7 @@ exports.__esModule = true;
 var react_1 = require("react");
 require("./App.css");
 var TodoForm_1 = require("./component/TodoForm");
-var Todo_1 = require("./component/Test/Todo");
+var TodoList_1 = require("./component/TodoList");
 var App = function () {
     var _a = react_1.useState([]), todos = _a[0], setTodos = _a[1];
     var addHandler = function (url, tag) {
@@ -26,6 +26,6 @@ var App = function () {
     return (react_1["default"].createElement(react_1["default"].Fragment, null,
         react_1["default"].createElement("div", { className: "wrapper" },
             react_1["default"].createElement(TodoForm_1.TodoForm, { onAdd: addHandler, todos: todos }),
-            react_1["default"].createElement(Todo_1.Todo, { todos: todos }))));
+            react_1["default"].createElement(TodoList_1.TodoList, { todos: todos }))));
 };
 exports["default"] = App;
