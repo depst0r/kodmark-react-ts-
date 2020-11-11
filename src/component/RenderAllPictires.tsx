@@ -2,9 +2,7 @@ import React, { useState } from 'react'
 import { TodoForm } from '../component/TodoForm'
 import { TodoList } from '../component/TodoList'
 import { ITodo } from '../interfaces'
-import { GroupTags } from '../component/GroupTags'
 import { GroupePictures } from './Grouped/GroupePictures'
-
 
 
 const RenderAllPictures: React.FC = () => {
@@ -15,21 +13,21 @@ const RenderAllPictures: React.FC = () => {
       image_original_url: url,
       id: Date.now(),
       tag: tag
-
     }
     
     setTodos(prev => [newTodo, ...prev])
     console.log(todos);
   }
 
+
   return (
     <>
       <div className="wrapper">
-      <GroupTags todos={todos} />
+        <GroupePictures todos={todos}/>
         <TodoForm onAdd={addHandler} todos={todos} />
         <TodoList todos={todos} />
-      
       </div>
-    </>)
+    </>
+    )
 }
 export default RenderAllPictures;
