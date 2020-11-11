@@ -23,7 +23,7 @@ export const GroupePictures: React.FC<TodosProps> = ({ todos }) => {
 
 
         console.log(testKeys.map(res => res))
-        console.log(testValues.map((res: any) => res.tag))
+        console.log(testValues)
 
     }
 
