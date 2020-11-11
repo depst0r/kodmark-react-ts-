@@ -18,7 +18,13 @@ export const GroupePictures: React.FC<TodosProps> = ({ todos }) => {
             return array
         }, {})
         setGrouped(grouppedPictureList)
-        console.log(Object.keys(grouped))
+        const testKeys = Object.keys(grouped)
+        const testValues = Object.values(grouped)
+
+
+        console.log(testKeys.map(res => res))
+        console.log(testValues.map((res: any) => res.tag))
+
     }
 
 

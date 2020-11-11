@@ -12,7 +12,10 @@ exports.GroupePictures = function (_a) {
             return array;
         }, {});
         setGrouped(grouppedPictureList);
-        console.log(Object.keys(grouped));
+        var testKeys = Object.keys(grouped);
+        var testValues = Object.values(grouped);
+        console.log(testKeys.map(function (res) { return res; }));
+        console.log(testValues.map(function (res) { return res.tag; }));
     };
     return react_1["default"].createElement(react_1["default"].Fragment, null,
         react_1["default"].createElement("div", null,
