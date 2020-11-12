@@ -4,12 +4,12 @@ import '../style/style.css'
 
 
 interface TodoListProps {
-    grouped: {[key: string]: ITodo[]}
+    grouped: { [key: string]: ITodo[] }
 }
 
 export const GroupList: React.FC<TodoListProps> = ({ grouped }) => {
     return (
-        <div>
+        <div className='group-list'>
             {Object.keys(grouped).map(tag => {
                 return (
                     <div key={tag}>
@@ -17,7 +17,7 @@ export const GroupList: React.FC<TodoListProps> = ({ grouped }) => {
                         {grouped[tag].map(image => {
                             return (
                                 <div key={image.id}>
-                                    <img className="img" src={image.image_original_url} alt={image.tag}/>
+                                    <img className="img" src={image.image_original_url} alt={image.tag} />
                                 </div>
                             )
                         })}
