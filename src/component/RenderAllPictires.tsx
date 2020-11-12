@@ -3,10 +3,10 @@ import { TodoForm } from '../component/TodoForm'
 import { TodoList } from '../component/TodoList'
 import { ITodo } from '../interfaces'
 import { GroupePictures } from './Grouped/GroupePictures'
-import { GroupList } from './Grouped/GroupList'
 
 
-const RenderAllPictures: React.FC = () => {
+
+const RenderAllPictures: React.FC = ({grouped}:any) => {
   const [todos, setTodos] = useState<ITodo[]>([])
 
   const addHandler = (url: string, tag: string) => {
@@ -21,11 +21,11 @@ const RenderAllPictures: React.FC = () => {
   }
 
 
+
   return (
     <>
       <div className="wrapper">
-      <GroupList grouped={todos} />
-        <GroupePictures todos={todos} />
+        <GroupePictures todos={todos} grouped={grouped}/>
         <TodoForm onAdd={addHandler} todos={todos} />
         <TodoList todos={todos} />
       </div>

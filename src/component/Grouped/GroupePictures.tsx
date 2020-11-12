@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { ITodo } from '../../interfaces'
+import { GroupList } from './GroupList'
 
 interface TodosProps {
     todos: ITodo[]
+    grouped: {[key: string]: ITodo[]}
 }
 
 export const GroupePictures: React.FC<TodosProps> = ({ todos }) => {
@@ -18,18 +20,12 @@ export const GroupePictures: React.FC<TodosProps> = ({ todos }) => {
             return array
         }, {})
         setGrouped(grouppedPictureList)
-        const testKeys = Object.keys(grouped)
-        const testValues = Object.values(grouped)
-
-
-        console.log(testKeys.map(res => res))
-        console.log(testValues)
-
     }
 
     return <>
         <div>
             <button onClick={click}>Grouped</button>
+            <GroupList grouped={grouped}/>
         </div>
     </>
 }
