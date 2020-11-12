@@ -11,7 +11,7 @@ export const GroupePictures: React.FC<TodosProps> = ({todos}) => {
 
 
     
-    const c = () => {
+    const click = () => {
         const grouppedPictureList = todos.reduce((array:any, arg:any) => {
             array[arg.tag] = array[arg.tag] || [];
             array[arg.tag].push(arg)
@@ -27,7 +27,7 @@ export const GroupePictures: React.FC<TodosProps> = ({todos}) => {
 
     return<>
     <div>
-    <button onClick={c}>Click</button>
+    <button onClick={click}>Click</button>
     </div>
     </>
 }
