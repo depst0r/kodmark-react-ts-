@@ -3,6 +3,7 @@ import { TodoForm } from '../component/TodoForm'
 import { TodoList } from '../component/TodoList'
 import { ITodo } from '../interfaces'
 import { GroupePictures } from './Grouped/GroupePictures'
+import { GroupList } from './Grouped/GroupList'
 
 
 const RenderAllPictures: React.FC = () => {
@@ -14,7 +15,7 @@ const RenderAllPictures: React.FC = () => {
       id: Date.now(),
       tag: tag
     }
-    
+
     setTodos(prev => [newTodo, ...prev])
     console.log(todos);
   }
@@ -23,11 +24,12 @@ const RenderAllPictures: React.FC = () => {
   return (
     <>
       <div className="wrapper">
-        <GroupePictures todos={todos}/>
+      <GroupList grouped={todos} />
+        <GroupePictures todos={todos} />
         <TodoForm onAdd={addHandler} todos={todos} />
         <TodoList todos={todos} />
       </div>
     </>
-    )
+  )
 }
 export default RenderAllPictures;

@@ -1,21 +1,33 @@
 import React from 'react';
 import { ITodo } from '../../interfaces';
-interface TodoListprops {
-    grouped: ITodo[]
-}
 
-export const GroupList: React.FC<TodoListprops> = ({ grouped }) => {
+interface TodoListProps {
+    grouped: {[key: string]: ITodo[]}
+}
+export const GroupList: React.FC<TodoListProps> = ({ grouped }) => {
     return (
         <div>
-            {grouped.map(group => {
+            {Object.keys(grouped).map(group => {
+            {Object.keys(grouped).map(tag => {
                 return (
-                    <section className="todo" key={group.id}>
-                        <div className="todoItemList">
-                            <img src={group.image_original_url} alt={group.tag} />
-                        </div>
-                    </section>
+                    // <section className="todo" key={group.id}>
+                    <div className="todoItemList">
+                        <span>{group}</span>
+                    <div key={tag}>
+                        <h3>{tag}</h3>
+                        {grouped[tag].map(image => {
+                            return (
+                                <div key={image.id}>
+                                    {image.image_original_url}
+                                </div>
+                            )
+                        })}
+                    </div>
+                    
                 )
             })}
         </div>
+        </div>
     )
+} 
 }
