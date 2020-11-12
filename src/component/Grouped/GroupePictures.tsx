@@ -10,9 +10,6 @@ interface TodosProps {
 export const GroupePictures: React.FC<TodosProps> = ({ todos }) => {
     const [grouped, setGrouped] = useState({})
 
-
-
-
     const click = () => {
         const grouppedPictureList = todos.reduce((array: any, arg: any) => {
             array[arg.tag] = array[arg.tag] || [];
@@ -24,7 +21,7 @@ export const GroupePictures: React.FC<TodosProps> = ({ todos }) => {
 
     return <>
         <div>
-            <button onClick={click}>Grouped</button>
+            <button onClick={click}>Группировать</button>
             <GroupList grouped={grouped}/>
         </div>
     </>

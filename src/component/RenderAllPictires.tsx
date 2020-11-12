@@ -5,7 +5,6 @@ import { ITodo } from '../interfaces'
 import { GroupePictures } from './Grouped/GroupePictures'
 
 
-
 const RenderAllPictures: React.FC = ({grouped}:any) => {
   const [todos, setTodos] = useState<ITodo[]>([])
 
@@ -17,9 +16,7 @@ const RenderAllPictures: React.FC = ({grouped}:any) => {
     }
 
     setTodos(prev => [newTodo, ...prev])
-    console.log(todos);
   }
-
 
 
   return (

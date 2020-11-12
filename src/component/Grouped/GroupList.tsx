@@ -1,5 +1,6 @@
 import React from 'react';
 import { ITodo } from '../../interfaces';
+import '../style/style.css'
 
 
 interface TodoListProps {
@@ -16,7 +17,7 @@ export const GroupList: React.FC<TodoListProps> = ({ grouped }) => {
                         {grouped[tag].map(image => {
                             return (
                                 <div key={image.id}>
-                                    <img src={image.image_original_url} alt={image.tag}/>
+                                    <img className="img" src={image.image_original_url} alt={image.tag}/>
                                 </div>
                             )
                         })}

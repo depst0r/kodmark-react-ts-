@@ -28,7 +28,7 @@ export const TodoForm: React.FC<TodoFormProp> = ({ onAdd }) => {
     }
 
     return (
-
+    <div className='input'>
         <div className="input-field">
             <input
                 onChange={changeHandler}
@@ -41,5 +41,6 @@ export const TodoForm: React.FC<TodoFormProp> = ({ onAdd }) => {
                 Загрузить
             </button>
         </div>
+    </div>
     )
 }
