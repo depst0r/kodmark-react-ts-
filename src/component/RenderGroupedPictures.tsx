@@ -1,8 +1,8 @@
 import React from 'react'
 import { GroupePictures } from './Grouped/GroupePictures'
 
-export const RenderGroupedPictures:React.FC = ({grouped, todos}:any) => {
+export const RenderGroupedPictures:React.FC = ({grouped, images}:any) => {
     return (
-        <GroupePictures todos={todos} grouped={grouped}/>
+        <GroupePictures images={images} grouped={grouped}/>
     )
 }

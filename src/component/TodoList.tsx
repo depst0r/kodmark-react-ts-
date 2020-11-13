@@ -3,18 +3,18 @@ import { ITodo } from '../interfaces';
 import './style/style.css'
 
 interface TodoListprops {
-    todos: ITodo[]
+    images: ITodo[]
 }
 
-export const TodoList: React.FC<TodoListprops> = ({ todos }) => {
+export const TodoList: React.FC<TodoListprops> = ({ images }) => {
 
     return (
         <div>
-            {todos.map(todo => {
+            {images.map(image => {
                 return (
-                    <section className="todo" key={todo.id}>
+                    <section className="todo" key={image.id}>
                         <div className="todoItemList">
-                            <img className='img' src={todo.image_original_url} alt={todo.tag} />
+                            <img className='img' src={image.image_original_url} alt={image.tag} />
                         </div>
                     </section>
                 )

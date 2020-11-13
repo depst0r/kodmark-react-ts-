@@ -3,15 +3,15 @@ import { ITodo } from '../../interfaces'
 import { GroupList } from './GroupList'
 
 interface TodosProps {
-    todos: ITodo[]
+    images: ITodo[]
     grouped: {[key: string]: ITodo[]}
 }
 
-export const GroupePictures: React.FC<TodosProps> = ({ todos }) => {
+export const GroupePictures: React.FC<TodosProps> = ({ images }) => {
     const [grouped, setGrouped] = useState({})
 
     const click = () => {
-        const grouppedPictureList = todos.reduce((array: any, arg: any) => {
+        const grouppedPictureList = images.reduce((array: any, arg: any) => {
             array[arg.tag] = array[arg.tag] || [];
             array[arg.tag].push(arg)
             return array

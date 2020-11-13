@@ -4,7 +4,7 @@ import { ITodo } from '../interfaces'
 
 interface TodoFormProp {
     onAdd(title: string, tag: string): void,
-    todos: ITodo[]
+    images: ITodo[]
 }
 
 export const TodoForm: React.FC<TodoFormProp> = ({ onAdd }) => {

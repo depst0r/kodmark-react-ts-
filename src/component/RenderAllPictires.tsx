@@ -6,7 +6,7 @@ import { GroupePictures } from './Grouped/GroupePictures'
 
 
 const RenderAllPictures: React.FC = ({grouped}:any) => {
-  const [todos, setTodos] = useState<ITodo[]>([])
+  const [images, setImages] = useState<ITodo[]>([])
 
   const addHandler = (url: string, tag: string) => {
     const newTodo: ITodo = {
@@ -15,16 +15,16 @@ const RenderAllPictures: React.FC = ({grouped}:any) => {
       tag: tag
     }
     
-    setTodos(prev => [newTodo, ...prev])
+    setImages(prev => [newTodo, ...prev])
   }
 
 
   return (
     <>
       <div className="wrapper">
-        <GroupePictures todos={todos} grouped={grouped}/>
-        <TodoForm onAdd={addHandler} todos={todos} />
-        <TodoList todos={todos} />
+        <GroupePictures images={images} grouped={grouped}/>
+        <TodoForm onAdd={addHandler} images={images} />
+        <TodoList images={images} />
       </div>
     </>
   )
