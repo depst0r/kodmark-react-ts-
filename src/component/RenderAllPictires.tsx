@@ -14,7 +14,7 @@ const RenderAllPictures: React.FC = ({grouped}:any) => {
       id: Date.now(),
       tag: tag
     }
-
+    
     setTodos(prev => [newTodo, ...prev])
   }
 
