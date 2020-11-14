@@ -1,4 +1,4 @@
-export interface ITodo {
+export interface IApiData {
     image_original_url: string
     id: number
     tag: string

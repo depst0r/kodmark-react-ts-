@@ -1,12 +1,12 @@
 import React from 'react';
-import { ITodo } from '../interfaces';
+import { IApiData } from '../interfaces';
 import './style/style.css'
 
-interface TodoListprops {
-    images: ITodo[]
+interface DataListprops {
+    images: IApiData[]
 }
 
-export const TodoList: React.FC<TodoListprops> = ({ images }) => {
+export const TodoList: React.FC<DataListprops> = ({ images }) => {
 
     return (
         <div>

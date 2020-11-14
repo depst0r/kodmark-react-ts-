@@ -1,13 +1,13 @@
 import React from 'react';
-import { ITodo } from '../../interfaces';
+import { IApiData } from '../../interfaces';
 import '../style/style.css'
 
 
-interface TodoListProps {
-    grouped: { [key: string]: ITodo[] }
+interface DataListProps {
+    grouped: { [key: string]: IApiData[] }
 }
 
-export const GroupList: React.FC<TodoListProps> = ({ grouped }) => {
+export const GroupList: React.FC<DataListProps> = ({ grouped }) => {
     return (
         <div className='group-list'>
             {Object.keys(grouped).map(tag => {

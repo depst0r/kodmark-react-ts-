@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { ITodo } from '../interfaces'
+import { IApiData } from '../interfaces'
 
-interface TodosProps {
-    todos: ITodo[]
+interface DataProps {
+    todos: IApiData[]
 }
 
-export const GroupTags: React.FC<TodosProps> = ({ todos }) => {
+export const GroupTags: React.FC<DataProps> = ({ todos }) => {
     const [change, setChange] = useState<string>('Группировать')
     // const [grouped, setGrouped] = useState()
 

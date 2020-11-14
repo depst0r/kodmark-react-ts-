@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { TodoForm } from '../component/TodoForm'
 import { TodoList } from '../component/TodoList'
-import { ITodo } from '../interfaces'
+import { IApiData } from '../interfaces'
 import { GroupePictures } from './Grouped/GroupePictures'
 
 
 const RenderAllPictures: React.FC = ({grouped}:any) => {
-  const [images, setImages] = useState<ITodo[]>([])
+  const [images, setImages] = useState<IApiData[]>([])
 
   const addHandler = (url: string, tag: string) => {
-    const newTodo: ITodo = {
+    const newTodo: IApiData = {
       image_original_url: url,
       id: Date.now(),
       tag: tag

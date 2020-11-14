@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import { ITodo } from '../../interfaces'
+import { IApiData } from '../../interfaces'
 import { GroupList } from './GroupList'
 
-interface TodosProps {
-    images: ITodo[]
-    grouped: {[key: string]: ITodo[]}
+interface DataProps {
+    images: IApiData[]
+    grouped: {[key: string]: IApiData[]}
 }
 
-export const GroupePictures: React.FC<TodosProps> = ({ images }) => {
+export const GroupePictures: React.FC<DataProps> = ({ images }) => {
     const [grouped, setGrouped] = useState({})
 
     const click = () => {

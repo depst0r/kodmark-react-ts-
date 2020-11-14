@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import { ITodo } from '../interfaces'
+import { IApiData } from '../interfaces'
 
 
-interface TodoFormProp {
+interface ImagesFormProp {
     onAdd(title: string, tag: string): void,
-    images: ITodo[]
+    images: IApiData[]
 }
 
-export const TodoForm: React.FC<TodoFormProp> = ({ onAdd }) => {
+export const TodoForm: React.FC<ImagesFormProp> = ({ onAdd }) => {
     const [tag, setTag] = useState<string>('')
 
 
