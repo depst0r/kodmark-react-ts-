@@ -1,5 +1,7 @@
 import React from 'react'
-import RenderAllPictures from './component/RenderAllPictires'
+import { RecevingImages } from './component/NewRenderPictures/RecevingImages'
+// import RenderAllPictures from './component/RenderAllPictires'
+
 
 
 const App: React.FC = () => {
@@ -7,7 +9,8 @@ const App: React.FC = () => {
   return (
     <>
       <div className="wrapper">
-        <RenderAllPictures />
+        <RecevingImages/>
+        {/* <RenderAllPictures /> */}
       </div>
     </>)
 }
