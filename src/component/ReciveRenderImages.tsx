@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-export const RecevingImagesApi:React.FC = () => {
+export const ReceiveRenderImages:React.FC = () => {
     const [tag, setTag] = useState<string>('')
     const [images, setImages] = useState([])
-    const [grouped, setGrouped] = useState(false)
+    const [grouped, setGrouped] = useState<boolean>(false)
 
     const handleLoadImages = (event:React.MouseEvent) => {
         fetch(`https://api.giphy.com/v1/gifs/random?api_key=gTJAO48YcpmrADUyo4opy4ES4g7iDBxx&tag=${tag}`)
@@ -18,8 +18,8 @@ export const RecevingImagesApi:React.FC = () => {
 
     }
 
-    const handleGroup = () => setGrouped((state) => !state)
-    const handleClear = () => setImages([])
+    const handleGroup = (event:React.MouseEvent) => setGrouped((state) => !state)
+    const handleClear = (event:React.MouseEvent) => setImages([])
   
     const setOfTags = new Set(images.map((image:any) => image.tag))
     const gropedTags = Array.from(setOfTags)
