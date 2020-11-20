@@ -1,35 +1,56 @@
 import React, { useState } from 'react'
-import { ApiBase } from './ApiBase'
-import { ImagesRenderForm } from './ImagesRenderForm'
+import { IData } from './Interface'
+import { NewForm } from './NewForm'
+
+interface Images {
+  grouped: boolean
+}
+
+export const RecevingImages:React.FC<Images> = ({grouped}) => {
+
+    const [images, setImages] = useState<IData[]>([])
 
 
-export const RecevingImages:React.FC = () => {
 
-    const [images, setImages] = useState([])
-    const [tag, setTag] = useState<string>('')
-    const [grouped, setGrouped] = useState<Boolean>(false)
-
-    const handleLoadImage = (event: React.MouseEvent) => {
-    ApiBase(`https://api.giphy.com/v1/gifs/random?api_key=gTJAO48YcpmrADUyo4opy4ES4g7iDBxx&tag=${tag}`)
-    .then(res =>
-        setImages((state:any) =>
-          state.concat({
-            url: res.data.image_url,
-            tag: tag
-          })
-        ))
+    const handlerData = (url:string, tag:string) => {
+      const NewImage: IData = {
+        url: url,
+        id: Date.now(),
+        tag: tag
       }
 
-    const setOfTags = new Set(images.map((image:any) => image.tag));
-    const groupedTags = Array.from(setOfTags);
+      setImages(prev => [NewImage, ...prev])
+    }
 
-    return<>
-      <input 
-      type="text"
-      name='tag'
-      value={tag}
-      onChange={e => setTag(e.target.value)}
-      />
-      <ImagesRenderForm setGrouped={setGrouped} setImages={setImages}/>
-    </>
+    const setOfTags = new Set(images.map((image:any) => image.tag))
+    const gropedTags = Array.from(setOfTags)
+
+   return (
+     <div className="wrapper">
+       <div className="main">
+         <NewForm addImages={handlerData}/>
+         {grouped ? (
+            <div>
+                {gropedTags.map((tag:any) => (
+                    <div>
+                        <h1>{tag}</h1>
+                        {images
+                        .filter((image:any) => image.tag === tag)
+                        .map((image:any, index:any) => (
+                            <img src={image.url} alt={image.tag} key={index}/>
+                ))
+                        }
+                    </div>
+                ))}
+            </div>
+        ) : (
+            <div>
+                {images.map((image:any, index:number) => (
+                    <img src={image.url} alt={image.tag} key={index}/>
+                ))}
+            </div>
+        )}
+       </div>
+     </div>
+   )
 }
