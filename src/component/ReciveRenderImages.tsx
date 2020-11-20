@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './style.css'
 
 export const ReceiveRenderImages:React.FC = () => {
     const [tag, setTag] = useState<string>('')
@@ -15,51 +16,50 @@ export const ReceiveRenderImages:React.FC = () => {
                     }))
                 )
             )
-
     }
 
-    const handleGroup = (event:React.MouseEvent) => setGrouped((state) => !state)
+    const handleGroup = (event:React.MouseEvent) => setGrouped(state => !state)
     const handleClear = (event:React.MouseEvent) => setImages([])
   
     const setOfTags = new Set(images.map((image:any) => image.tag))
     const gropedTags = Array.from(setOfTags)
 
     return <>
-        <div className="wrapper">
-            <div className="main">
-                <input type="text"
-                    name='tag'
-                    value={tag}
-                    onChange={e => setTag(e.target.value)}
-                />
-                <button onClick={handleLoadImages}>Загрузть</button>
-                <button onClick={handleClear}>Очстить</button>
-                {grouped ? (
-          <button onClick={handleGroup}>Разруппировать</button>
-        ) : (
-          <button onClick={handleGroup}>Группировать</button>
-        )}
-      </div>
+<div className="wrapper">
+    <div className="main">
+        <input type="text"
+            name='tag'
+            value={tag}
+            onChange={e => setTag(e.target.value)}
+        />
+        <button onClick={handleLoadImages}>Загрузть</button>
+        <button onClick={handleClear}>Очстить</button>
+        {grouped ? (
+            <button onClick={handleGroup}>Разруппировать</button>
+            ) : (
+            <button onClick={handleGroup}>Группировать</button>
+            )}
             </div>
-            {grouped ? (
-        <div>
-          {gropedTags.map((tag) => (
-            <div>
-              <h1>{tag}</h1>
-              {images
-                .filter((image:any) => image.tag === tag)
-                .map((image:any, index) => (
-                  <img key={index} src={image.url} />
+                    </div>
+                    {grouped ? (
+                <div>
+                {gropedTags.map(tag => (
+                    <div className='grouped'>
+                    <h1 className='tag'>{tag}</h1>
+                    {images
+                        .filter((image:any) => image.tag === tag)
+                        .map((image:any, index) => (
+                        <img key={index} src={image.url} />
+                        ))}
+                    </div>
                 ))}
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div>
-          {images.map((image:any, index) => (
-            <img key={index} src={image.url} />
-          ))}
-        </div>
-      )}
+                </div>
+            ) : (
+                <div className='images'>
+                {images.map((image:any, index) => (
+                    <img key={index} src={image.url} />
+                ))}
+                </div>
+            )}
     </>
 }
