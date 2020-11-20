@@ -1,13 +1,12 @@
 import React from 'react'
-import { RecevingImages } from './component/NewRenderPictures/RecevingImages'
-
+import { RecevingImagesApi } from './component/NewRenderPictures/RecevingImagesApi'
  
 const App: React.FC = () => {
 
   return (
     <>
       <div className="wrapper">
-        <RecevingImages />
+        <RecevingImagesApi/>
       </div>
     </>)
 }

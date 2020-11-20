@@ -10,7 +10,7 @@ interface DataProps {
 export const GroupePictures: React.FC<DataProps> = ({ images }) => {
     const [grouped, setGrouped] = useState({})
 
-    const click = () => {
+    const handlGrouped = () => {
         const grouppedPictureList = images.reduce((array: any, arg: any) => {
             array[arg.tag] = array[arg.tag] || [];
             array[arg.tag].push(arg)
@@ -21,7 +21,7 @@ export const GroupePictures: React.FC<DataProps> = ({ images }) => {
 
     return <>
         <div>
-            <button onClick={click}>Группировать</button>
+            <button onClick={handlGrouped}>Группировать</button>
             <GroupList grouped={grouped}/>
         </div>
     </>
